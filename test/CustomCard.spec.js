@@ -1,14 +1,10 @@
-// test/CustomCard.spec.js
-
-// Libraries
-import Vue from 'vue'
 import Vuetify from 'vuetify'
 
 // Components
 import CustomCard from '@/components/CustomCard'
 
 // Utilities
-import { createLocalVue, mount } from '@vue/test-utils'
+import {createLocalVue, mount} from '@vue/test-utils'
 
 describe('CustomCard.vue', () => {
   const localVue = createLocalVue()
