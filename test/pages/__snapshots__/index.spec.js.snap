@@ -1,45 +1,134 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`index.vue should have a custom title and match snapshot 1`] = `
-"<v-row-stub tag=\\"div\\" align=\\"center\\" justify=\\"center\\">
-  <v-col-stub cols=\\"12\\" sm=\\"8\\" md=\\"6\\" tag=\\"div\\">
-    <div class=\\"text-center\\"></div>
-    <v-card-stub loaderheight=\\"4\\" tag=\\"div\\">
-      <v-card-title-stub class=\\"headline\\"><strong>Ara</strong>bic <strong>lang</strong>uage
-      </v-card-title-stub>
-      <v-card-text-stub>
-        <p class=\\"intro\\">Изучай арабский на своём уровне</p>
-        <p>
-          For more information on Vuetify, check out the
-          <a href=\\"https://vuetifyjs.com\\" target=\\"_blank\\" rel=\\"noopener noreferrer\\">
-            documentation </a>.
-        </p>
-        <p>
-          If you have questions, please join the official
-          <a href=\\"https://chat.vuetifyjs.com/\\" target=\\"_blank\\" rel=\\"noopener noreferrer\\" title=\\"chat\\">
-            discord </a>.
-        </p>
-        <p>
-          Find a bug? Report it on the github
-          <a href=\\"https://github.com/vuetifyjs/vuetify/issues\\" target=\\"_blank\\" rel=\\"noopener noreferrer\\" title=\\"contribute\\">
-            issue board </a>.
-        </p>
-        <p>
-          Thank you for developing with Vuetify and I look forward to bringing
-          more exciting features in the future.
-        </p>
-        <div class=\\"text-xs-right\\"><em><small>— John Leider</small></em></div>
-        <hr class=\\"my-3\\"> <a href=\\"https://nuxtjs.org/\\" target=\\"_blank\\" rel=\\"noopener noreferrer\\">
-          Nuxt Documentation
-        </a> <br> <a href=\\"https://github.com/nuxt/nuxt.js\\" target=\\"_blank\\" rel=\\"noopener noreferrer\\">
-          Nuxt GitHub
-        </a>
-      </v-card-text-stub>
-      <v-card-actions-stub>
-        <v-spacer-stub></v-spacer-stub>
-        <v-btn-stub color=\\"primary\\" tag=\\"button\\" activeclass=\\"\\" to=\\"/inspire\\" nuxt=\\"true\\" type=\\"button\\"> Continue </v-btn-stub>
-      </v-card-actions-stub>
-    </v-card-stub>
-  </v-col-stub>
-</v-row-stub>"
+"<v-app-stub id=\\"app\\">
+  <v-app-bar-stub color=\\"white\\" height=\\"100\\" tag=\\"header\\" extensionheight=\\"48\\" src=\\"\\" value=\\"true\\" app=\\"true\\">
+    <v-avatar-stub color=\\"grey lighten-5\\" size=\\"70\\" class=\\"mr-3\\">
+      <v-img-stub maxheight=\\"70%\\" contain=\\"true\\" options=\\"[object Object]\\" position=\\"center center\\" src=\\"https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png\\" transition=\\"fade-transition\\"></v-img-stub>
+    </v-avatar-stub>
+    <v-toolbar-title-stub name=\\"title\\" class=\\"font-weight-black headline\\">
+      AraLang
+    </v-toolbar-title-stub>
+  </v-app-bar-stub>
+  <v-content-stub tag=\\"main\\">
+    <section id=\\"hero\\">
+      <v-row-stub tag=\\"div\\" nogutters=\\"true\\">
+        <v-img-stub minheight=\\"calc(100vh - 0px)\\" options=\\"[object Object]\\" position=\\"center center\\" src=\\"https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1951&amp;q=80\\" transition=\\"fade-transition\\">
+          <v-theme-provider-stub dark=\\"true\\">
+            <v-container-stub tag=\\"div\\" fill-height=\\"\\">
+              <v-row-stub tag=\\"div\\" align=\\"center\\" justify=\\"center\\" class=\\"white--text mx-auto\\">
+                <v-col-stub cols=\\"12\\" tag=\\"h1\\" class=\\"white--text text-center\\"><span class=\\"font-weight-light display-2\\">
+                    WELCOME TO
+                  </span> <br> <span class=\\"font-weight-black display-4\\">
+                    VUETIFY
+                  </span></v-col-stub>
+                <v-btn-stub outlined=\\"true\\" tag=\\"button\\" activeclass=\\"\\" fab=\\"true\\" type=\\"button\\" class=\\"align-self-end\\">
+                  <v-icon-stub>mdi-chevron-double-down</v-icon-stub>
+                </v-btn-stub>
+              </v-row-stub>
+            </v-container-stub>
+          </v-theme-provider-stub>
+        </v-img-stub>
+      </v-row-stub>
+    </section>
+    <section id=\\"about-me\\">
+      <div class=\\"py-12\\"></div>
+      <v-container-stub tag=\\"div\\" class=\\"text-center\\">
+        <h2 class=\\"display-2 font-weight-bold mb-3\\">ABOUT ME</h2>
+        <v-responsive-stub width=\\"56\\" class=\\"mx-auto mb-8\\">
+          <v-divider-stub class=\\"mb-1\\"></v-divider-stub>
+          <v-divider-stub></v-divider-stub>
+        </v-responsive-stub>
+        <v-responsive-stub maxwidth=\\"720\\" class=\\"mx-auto title font-weight-light mb-8\\">
+          Vuetify is the #1 component library for Vue.js and has been in
+          active development since 2016. The goal of the project is to provide
+          users with everything that is needed to build rich and engaging web
+          applications using the Material Design specification. It
+          accomplishes that with a consistent update cycle, Long-term Support
+          (LTS) for previous versions, responsive community engagement, a vast
+          ecosystem of resources and a dedication to quality components.
+        </v-responsive-stub>
+        <v-avatar-stub size=\\"128\\" class=\\"elevation-12 mb-12\\">
+          <v-img-stub options=\\"[object Object]\\" position=\\"center center\\" src=\\"https://cdn.vuetifyjs.com/images/john.png\\" transition=\\"fade-transition\\"></v-img-stub>
+        </v-avatar-stub>
+        <div></div>
+        <v-btn-stub color=\\"grey\\" outlined=\\"true\\" tag=\\"button\\" activeclass=\\"\\" href=\\"https://vuetifyjs.com\\" large=\\"true\\" type=\\"button\\"><span class=\\"grey--text text--darken-1 font-weight-bold\\">
+            Vuetify Documentation
+          </span></v-btn-stub>
+      </v-container-stub>
+      <div class=\\"py-12\\"></div>
+    </section>
+    <section id=\\"features\\" class=\\"grey lighten-3\\">
+      <div class=\\"py-12\\"></div>
+      <v-container-stub tag=\\"div\\" class=\\"text-center\\">
+        <h2 class=\\"display-2 font-weight-bold mb-3\\">VUETIFY FEATURES</h2>
+        <v-responsive-stub width=\\"56\\" class=\\"mx-auto mb-12\\">
+          <v-divider-stub class=\\"mb-1\\"></v-divider-stub>
+          <v-divider-stub></v-divider-stub>
+        </v-responsive-stub>
+        <v-row-stub tag=\\"div\\"></v-row-stub>
+      </v-container-stub>
+      <div class=\\"py-12\\"></div>
+    </section>
+    <section id=\\"stats\\">
+      <v-parallax-stub height=\\"500\\" alt=\\"\\" src=\\"https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1950&amp;q=80\\">
+        <v-container-stub tag=\\"div\\" fill-height=\\"\\">
+          <v-row-stub tag=\\"div\\" class=\\"mx-auto\\"></v-row-stub>
+        </v-container-stub>
+      </v-parallax-stub>
+    </section>
+    <section id=\\"blog\\">
+      <div class=\\"py-12\\"></div>
+      <v-container-stub tag=\\"div\\">
+        <h2 class=\\"display-2 font-weight-bold mb-3 text-uppercase text-center\\">
+          Blog
+        </h2>
+        <v-responsive-stub width=\\"56\\" class=\\"mx-auto mb-12\\">
+          <v-divider-stub class=\\"mb-1\\"></v-divider-stub>
+          <v-divider-stub></v-divider-stub>
+        </v-responsive-stub>
+        <v-row-stub tag=\\"div\\"></v-row-stub>
+      </v-container-stub>
+      <div class=\\"py-12\\"></div>
+    </section>
+    <v-sheet-stub color=\\"#333333\\" tile=\\"true\\" dark=\\"true\\" tag=\\"section\\" id=\\"contact\\">
+      <div class=\\"py-12\\"></div>
+      <v-container-stub tag=\\"div\\">
+        <h2 class=\\"display-2 font-weight-bold mb-3 text-uppercase text-center\\">
+          Contact Me
+        </h2>
+        <v-responsive-stub width=\\"56\\" class=\\"mx-auto mb-12\\">
+          <v-divider-stub class=\\"mb-1\\"></v-divider-stub>
+          <v-divider-stub></v-divider-stub>
+        </v-responsive-stub>
+        <v-theme-provider-stub light=\\"true\\">
+          <v-row-stub tag=\\"div\\">
+            <v-col-stub cols=\\"12\\" tag=\\"div\\">
+              <v-text-field-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" label=\\"Name*\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" flat=\\"true\\" solo=\\"true\\" type=\\"text\\"></v-text-field-stub>
+            </v-col-stub>
+            <v-col-stub cols=\\"12\\" tag=\\"div\\">
+              <v-text-field-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" label=\\"Email*\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" flat=\\"true\\" solo=\\"true\\" type=\\"text\\"></v-text-field-stub>
+            </v-col-stub>
+            <v-col-stub cols=\\"12\\" tag=\\"div\\">
+              <v-text-field-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" label=\\"Subject*\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" flat=\\"true\\" solo=\\"true\\" type=\\"text\\"></v-text-field-stub>
+            </v-col-stub>
+            <v-col-stub cols=\\"12\\" tag=\\"div\\">
+              <v-textarea-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" label=\\"Message*\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" flat=\\"true\\" solo=\\"true\\" type=\\"text\\" rowheight=\\"24\\" rows=\\"5\\"></v-textarea-stub>
+            </v-col-stub>
+            <v-col-stub cols=\\"auto\\" tag=\\"div\\" class=\\"mx-auto\\">
+              <v-btn-stub color=\\"accent\\" tag=\\"button\\" activeclass=\\"\\" xlarge=\\"true\\" type=\\"button\\"> Submit </v-btn-stub>
+            </v-col-stub>
+          </v-row-stub>
+        </v-theme-provider-stub>
+      </v-container-stub>
+      <div class=\\"py-12\\"></div>
+    </v-sheet-stub>
+  </v-content-stub>
+  <v-footer-stub color=\\"#292929\\" height=\\"100\\" tag=\\"footer\\" class=\\"justify-center\\">
+    <div class=\\"title font-weight-light grey--text text--lighten-1 text-center\\">
+      © 2020 — Vuetify, LLC — Made with Love by
+      John Leider
+    </div>
+  </v-footer-stub>
+</v-app-stub>"
 `;
