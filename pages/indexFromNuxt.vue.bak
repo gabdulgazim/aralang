@@ -47,7 +47,7 @@
           <div class="text-xs-right">
             <em><small>&mdash; John Leider</small></em>
           </div>
-          <hr class="my-3"/>
+          <hr class="my-3" />
           <a
             href="https://nuxtjs.org/"
             rel="noopener noreferrer"
@@ -55,7 +55,7 @@
           >
             Nuxt Documentation
           </a>
-          <br/>
+          <br />
           <a
             href="https://github.com/nuxt/nuxt.js"
             rel="noopener noreferrer"
@@ -65,7 +65,7 @@
           </a>
         </v-card-text>
         <v-card-actions>
-          <v-spacer/>
+          <v-spacer />
           <v-btn color="primary" nuxt to="/inspire"> Continue</v-btn>
         </v-card-actions>
       </v-card>
