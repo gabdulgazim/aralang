@@ -110,8 +110,7 @@
 
                 <v-card-text class="subtitle-1" v-text="text"
                 >Средний уровень
-                </v-card-text
-                >
+                </v-card-text>
               </v-card>
             </v-col>
           </v-row>

@@ -92,3 +92,6 @@ sw.*
 # Cypress videos and screenshots
 /cypress/screenshots
 /cypress/videos
+
+# Jest snapshots
+/test/**/__snapshots__
