@@ -26,7 +26,8 @@ context('Main page', () => {
 
   it("home  page contians meaningful text", function () {
 
-    cy.contains('AraLang')
+    cy.contains('Ara_lang')
+
 
       // cy.getBySel("sidenav-bankaccounts").click();
       //
