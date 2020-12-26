@@ -34,7 +34,7 @@
                     ]"
                     class="font-weight-black"
                   >
-                    VUETIFY
+                    Переводчик
                   </span>
                 </v-col>
 
@@ -42,7 +42,7 @@
                   class="align-self-end"
                   fab
                   outlined
-                  @click="$vuetify.goTo('#about-me')"
+                  @click="$vuetify.goTo('#everyday')"
                 >
                 </v-btn>
               </v-row>
@@ -238,8 +238,8 @@
       <div
         class="title font-weight-light grey--text text--lighten-1 text-center"
       >
-        &copy; {{ new Date().getFullYear() }} — Vuetify, LLC — Made with Love by
-        John Leider
+        На основе шаблона &copy; {{ new Date().getFullYear() }} — Vuetify, LLC —
+        Made with Love by John Leider
       </div>
     </v-footer>
   </v-app>
