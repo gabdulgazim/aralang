@@ -5,7 +5,6 @@
         AraLang
       </v-toolbar-title>
     </v-app-bar>
-
     <v-content>
       <section id="first-look">
         <v-row no-gutters>

@@ -5,5 +5,6 @@ module.exports = async (on, config) => {
   on('file:preprocessor', await cypressNuxt.plugin()) // make sure to include "await"!
 
   // other plugins...
-  return config
-}
+  return config;
+};
+

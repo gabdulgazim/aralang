@@ -1,3 +1,4 @@
 cypress/integration/*
 cypress/*
+test/*
 

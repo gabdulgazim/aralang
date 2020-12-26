@@ -1,35 +1,52 @@
 /// <reference types="cypress" />
 
-context('Actions', () => {
-  beforeEach(() => {
-    cy.visit('baseUrl')
-  })
+// import { mountCallback } from "@cypress/vue"
+
+// const template = `
+//     <div id="app">
+//       {{ message }}
+//     </div>
+//   `
+//
+// const data = {
+//   message: ' AraLang Vue!',
+// }
+
+context('Main page', () => {
+
+  // beforeEach(() => {
+  //   cy.visit('/')
+  // })
 
   // https://on.cypress.io/interacting-with-elements
 
-  it("creates a new bank account", function () {
+  it('successfully loads', () => {
+    cy.visit('/') // change URL to match your dev URL
+  })
+
+  it("home  page contians meaningful text", function () {
 
     cy.contains('AraLang')
 
-    // cy.getBySel("sidenav-bankaccounts").click();
-    //
-    // cy.getBySel("bankaccount-new").click();
-    // cy.location("pathname").should("eq", "/bankaccounts/new");
-    // cy.visualSnapshot("Display New Bank Account Form");
-    //
-    // cy.getBySelLike("bankName-input").type("The Best Bank");
-    // cy.getBySelLike("routingNumber-input").type("987654321");
-    // cy.getBySelLike("accountNumber-input").type("123456789");
-    // cy.visualSnapshot("Fill out New Bank Account Form");
-    // cy.getBySelLike("submit").click();
-    //
-    // cy.wait("@createBankAccount");
-    //
-    // cy.getBySelLike("bankaccount-list-item")
-    //   .should("have.length", 2)
-    //   .eq(1)
-    //   .should("contain", "The Best Bank");
-    cy.visualSnapshot("Bank Account Created");
+      // cy.getBySel("sidenav-bankaccounts").click();
+      //
+      // cy.getBySel("bankaccount-new").click();
+      // cy.location("pathname").should("eq", "/bankaccounts/new");
+      // cy.visualSnapshot("Display New Bank Account Form");
+      //
+      // cy.getBySelLike("bankName-input").type("The Best Bank");
+      // cy.getBySelLike("routingNumber-input").type("987654321");
+      // cy.getBySelLike("accountNumber-input").type("123456789");
+      // cy.visualSnapshot("Fill out New Bank Account Form");
+      // cy.getBySelLike("submit").click();
+      //
+      // cy.wait("@createBankAccount");
+      //
+      // cy.getBySelLike("bankaccount-list-item")
+      //   .should("have.length", 2)
+      //   .eq(1)
+      //   .should("contain", "The Best Bank");
+      .screenshot("Main page has some meaningfull text");
   });
 
 
