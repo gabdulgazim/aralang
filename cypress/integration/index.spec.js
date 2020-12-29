@@ -1,85 +1,146 @@
-/// <reference types="cypress" />
-
-// import { mountCallback } from "@cypress/vue"
-
-// const template = `
-//     <div id="app">
-//       {{ message }}
-//     </div>
-//   `
-//
-// const data = {
-//   message: ' AraLang Vue!',
-// }
-
 context('Main page', () => {
-
-  // beforeEach(() => {
-  //   cy.visit('/')
-  // })
-
-  // https://on.cypress.io/interacting-with-elements
 
   it('successfully loads', () => {
     cy.visit('/') // change URL to match your dev URL
   })
 
-  it("home  page contians meaningful text", function () {
+  // it("home  page contians meaningful text", function () {
+  //
+  //   cy.contains('Ara_lang')
+  //
+  //
+  //     // cy.getBySel("sidenav-bankaccounts").click();
+  //     //
+  //     // cy.getBySel("bankaccount-new").click();
+  //     // cy.location("pathname").should("eq", "/bankaccounts/new");
+  //     // cy.visualSnapshot("Display New Bank Account Form");
+  //     //
+  //     // cy.getBySelLike("bankName-input").type("The Best Bank");
+  //     // cy.getBySelLike("routingNumber-input").type("987654321");
+  //     // cy.getBySelLike("accountNumber-input").type("123456789");
+  //     // cy.visualSnapshot("Fill out New Bank Account Form");
+  //     // cy.getBySelLike("submit").click();
+  //     //
+  //     // cy.wait("@createBankAccount");
+  //     //
+  //     // cy.getBySelLike("bankaccount-list-item")
+  //     //   .should("have.length", 2)
+  //     //   .eq(1)
+  //     //   .should("contain", "The Best Bank");
+  //     .screenshot("Main page has some meaningfull text");
+  // });
 
-    cy.contains('Ara_lang')
+
+  // it('Get and set configuration options', () => {
+  //   // https://on.cypress.io/config
+  //   const myConfig = Cypress.config()
+  //
+  //   expect(myConfig).to.have.property('animationDistanceThreshold', 5)
+  //   expect(myConfig).to.have.property('baseUrl', 'http://localhost:3000')
+  //   expect(myConfig).to.have.property('defaultCommandTimeout', 4000)
+  //   expect(myConfig).to.have.property('requestTimeout', 5000)
+  //   expect(myConfig).to.have.property('responseTimeout', 30000)
+  //   expect(myConfig).to.have.property('viewportHeight', 660)
+  //   expect(myConfig).to.have.property('viewportWidth', 1000)
+  //   expect(myConfig).to.have.property('pageLoadTimeout', 60000)
+  //   expect(myConfig).to.have.property('waitForAnimations', true)
+  //
+  //   expect(Cypress.config('pageLoadTimeout')).to.eq(60000)
+  //
+  //   // this will change the config for the rest of your tests!
+  //   Cypress.config('pageLoadTimeout', 20000)
+  //
+  //   expect(Cypress.config('pageLoadTimeout')).to.eq(20000)
+  //
+  //   Cypress.config('pageLoadTimeout', 60000)
+  // })
 
 
-      // cy.getBySel("sidenav-bankaccounts").click();
-      //
-      // cy.getBySel("bankaccount-new").click();
-      // cy.location("pathname").should("eq", "/bankaccounts/new");
-      // cy.visualSnapshot("Display New Bank Account Form");
-      //
-      // cy.getBySelLike("bankName-input").type("The Best Bank");
-      // cy.getBySelLike("routingNumber-input").type("987654321");
-      // cy.getBySelLike("accountNumber-input").type("123456789");
-      // cy.visualSnapshot("Fill out New Bank Account Form");
-      // cy.getBySelLike("submit").click();
-      //
-      // cy.wait("@createBankAccount");
-      //
-      // cy.getBySelLike("bankaccount-list-item")
-      //   .should("have.length", 2)
-      //   .eq(1)
-      //   .should("contain", "The Best Bank");
-      .screenshot("Main page has some meaningfull text");
-  });
+  it('.type() - type name', () => {
+    cy.get('[data-cy=fb-name]')
+      .type('Feedbacker name')
+
+    cy.get('[data-cy=fb-name]').parent()
+      .within(() => {
+        cy.get('input:first')
+          .should('have.attr',
+            'placeholder', 'name')
+      })
+
+    cy.get('[data-cy=fb-name]').parent()
+      .within(() => {
+        cy.get('input:first')
+          // .should('have.text', 'Feedbacker name')
+          .should('have.value', 'Feedbacker name')
+      })
 
 
-  it('Get and set configuration options', () => {
-    // https://on.cypress.io/config
-    const myConfig = Cypress.config()
-
-    expect(myConfig).to.have.property('animationDistanceThreshold', 5)
-    expect(myConfig).to.have.property('baseUrl', 'http://localhost:3000')
-    expect(myConfig).to.have.property('defaultCommandTimeout', 4000)
-    expect(myConfig).to.have.property('requestTimeout', 5000)
-    expect(myConfig).to.have.property('responseTimeout', 30000)
-    expect(myConfig).to.have.property('viewportHeight', 660)
-    expect(myConfig).to.have.property('viewportWidth', 1000)
-    expect(myConfig).to.have.property('pageLoadTimeout', 60000)
-    expect(myConfig).to.have.property('waitForAnimations', true)
-
-    expect(Cypress.config('pageLoadTimeout')).to.eq(60000)
-
-    // this will change the config for the rest of your tests!
-    Cypress.config('pageLoadTimeout', 20000)
-
-    expect(Cypress.config('pageLoadTimeout')).to.eq(20000)
-
-    Cypress.config('pageLoadTimeout', 60000)
   })
 
+  it('.type() - type email', () => {
+    // https://on.cypress.io/type
+    cy.get('[data-cy=fb-email]')
+      .type('fake@email.com')
 
-  // it('.type() - type into a DOM element', () => {
-  //   // https://on.cypress.io/type
-  //   cy.get('.action-email')
-  //     .type('fake@email.com').should('have.value', 'fake@email.com')
+    cy.get('[data-cy=fb-email]').parent()
+      .within(() => {
+        cy.get('input:first')
+          .should('have.attr',
+            'placeholder', 'email')
+      })
+
+    cy.get('[data-cy=fb-email]').parent()
+      .within(() => {
+        cy.get('input:first')
+          .should('have.value', 'fake@email.com')
+      })
+
+      // .type() with special character sequences
+      .type('{leftarrow}{rightarrow}{uparrow}{downarrow}')
+      .type('{del}{selectall}{backspace}')
+
+      // .type() with key modifiers
+      .type('{alt}{option}') //these are equivalent
+      .type('{ctrl}{control}') //these are equivalent
+      .type('{meta}{command}{cmd}') //these are equivalent
+      .type('{shift}')
+
+    // cy.get('.action-disabled')
+    //   // Ignore error checking prior to type
+    //   // like whether the input is visible or disabled
+    //   .type('disabled error checking', {force: true})
+    //   .should('have.value', 'disabled error checking')
+  })
+
+  it('.type() - type subject', () => {
+    cy.get('[data-cy=fb-subject]')
+      .type('request feature')
+
+    cy.get('[data-cy=fb-subject]').parent()
+      .within(() => {
+        cy.get('input:first')
+          .should('have.attr',
+            'placeholder', 'subject')
+      })
+      // .should('include', 'request')
+
+      // .type() with special character sequences
+      .type('{leftarrow}{rightarrow}{uparrow}{downarrow}')
+      .type('{del}{selectall}{backspace}')
+
+      // .type() with key modifiers
+      .type('{alt}{option}') //these are equivalent
+      .type('{ctrl}{control}') //these are equivalent
+      .type('{meta}{command}{cmd}') //these are equivalent
+      .type('{shift}')
+
+  })
+
+  // it('.type() - type message', () => {
+  //   cy.get('.fb-message')
+  //     .type('Some message')
+  //
+  //     cy.get('.fb-message').should('have.html', 'Some message')
   //
   //     // .type() with special character sequences
   //     .type('{leftarrow}{rightarrow}{uparrow}{downarrow}')
@@ -91,15 +152,6 @@ context('Main page', () => {
   //     .type('{meta}{command}{cmd}') //these are equivalent
   //     .type('{shift}')
   //
-  //     // Delay each keypress by 0.1 sec
-  //     .type('slow.typing@email.com', {delay: 100})
-  //     .should('have.value', 'slow.typing@email.com')
-  //
-  //   cy.get('.action-disabled')
-  //     // Ignore error checking prior to type
-  //     // like whether the input is visible or disabled
-  //     .type('disabled error checking', {force: true})
-  //     .should('have.value', 'disabled error checking')
   // })
 
 //   it('.focus() - focus on a DOM element', () => {

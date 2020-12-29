@@ -1,10 +1,11 @@
 <template>
   <v-app>
-    <v-app-bar app color="white" height="100">
+    <v-app-bar app color="#e0e0e0" height="100">
       <v-toolbar-title class="font-weight-black headline">
         <strong>Ara</strong>bic <strong>lang</strong>uage
       </v-toolbar-title>
     </v-app-bar>
+
     <v-main>
       <section id="first-look">
         <v-row no-gutters>
@@ -192,7 +193,6 @@
           <div class="py-12"></div>
         </v-parallax>
       </section>
-
       <v-sheet id="contact" color="#333333" dark tag="section" tile>
         <div class="py-12"></div>
 
@@ -209,22 +209,47 @@
             <v-divider></v-divider>
           </v-responsive>
 
-          <v-theme-provider light>
+          <v-theme-provider class="feedback" light>
             <v-row>
               <v-col cols="12">
-                <v-text-field flat label="Имя*" solo></v-text-field>
+                <v-text-field
+                  data-cy="fb-name"
+                  flat
+                  label="Имя*"
+                  placeholder="name"
+                  solo
+                  type="text"
+                ></v-text-field>
               </v-col>
 
               <v-col cols="12">
-                <v-text-field flat label="Email*" solo></v-text-field>
+                <v-text-field
+                  data-cy="fb-email"
+                  flat
+                  label="Email*"
+                  placeholder="email"
+                  solo
+                  type="email"
+                ></v-text-field>
               </v-col>
 
               <v-col cols="12">
-                <v-text-field flat label="По поводу*" solo></v-text-field>
+                <v-text-field
+                  data-cy="fb-subject"
+                  flat
+                  label="По поводу*"
+                  placeholder="subject"
+                  solo
+                ></v-text-field>
               </v-col>
 
               <v-col cols="12">
-                <v-textarea flat label="Сообщить о том, что*" solo></v-textarea>
+                <v-textarea
+                  data-cy="fb-message"
+                  flat
+                  label="Сообщить о том, что*"
+                  solo
+                ></v-textarea>
               </v-col>
 
               <v-col class="mx-auto" cols="auto">
