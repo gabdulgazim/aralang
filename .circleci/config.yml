@@ -14,7 +14,6 @@ workflows:
           parallelism: 4      # use 4 CircleCI machines to finish quickly
           group: 'all tests'  # name this group "all tests" on the dashboard
           start: 'npm start'  # start server before running tests
-
 #          run: $(yarn bin)/cypress run --record --key 49100f76-2f4e-4870-a587-72411073c821
 #
 #          - add_ssh_keys:
