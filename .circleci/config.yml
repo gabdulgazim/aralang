@@ -25,7 +25,7 @@ jobs:
           key: v1-deps-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
             - ~/.cache  ## cache both yarn and Cypress!
-      - run: $(yarn bin)/cypress run --record --key <record_key>
+      - run: $(yarn bin)/cypress run --record --key 49100f76-2f4e-4870-a587-72411073c821
       - add_ssh_keys:
           fingerprints:
             - "32:04:f0:a0:7e:7f:94:f5:72:1a:38:68:7c:f3:f9:a7"
