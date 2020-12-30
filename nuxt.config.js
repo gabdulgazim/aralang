@@ -38,15 +38,18 @@ export default {
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
   ],
+  router: {
+    base: '/aralang/'
+  },
 
-  routerBase:
-    process.env.DEPLOY_ENV === "GH_PAGES"
-      ? {
-        router: {
-          base: "/my-nuxt-app/"
-        }
-      }
-      : {},
+    // routerBase:
+    // process.env.DEPLOY_ENV === "GH_PAGES"
+    //   ? {
+    //     router: {
+    //       base: "/my-nuxt-app/"
+    //     }
+    //   }
+    //   : {},
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: ['@nuxtjs/axios',
