@@ -11,14 +11,14 @@
     "lint": "yarn lint:js",
     "test": "jest",
     "e2e": "cypress open --browser chrome",
-    "e2e:silent": "cypress run"
+    "e2e:silent": "cypress run",
+    "generate:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt generate --fail-on-page-error"
   },
   "dependencies": {
     "@nuxt/content": "^1.11.1",
     "@nuxtjs/axios": "^5.12.4",
     "core-js": "^3.6.5",
     "nuxt": "^2.14.6",
-    "generate:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt generate --fail-on-page-error"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
