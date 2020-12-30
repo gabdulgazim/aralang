@@ -6,10 +6,10 @@ jobs:
         environment:
           ## this enables colors in the output
           TERM: xterm
-#    working_directory: ~/frontend
+    working_directory: ~/frontend
     steps:
-#      - checkout
-##          path: ./frontend
+      - checkout
+#          path: ./frontend
       - run:
           name: pwd
           command: cd && pwd
