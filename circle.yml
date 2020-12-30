@@ -1,0 +1,43 @@
+version: 2.1
+jobs:
+  build:
+    working_directory: ~/frontend
+    docker:
+      - image: circleci/node:10.16.3
+    steps:
+      - checkout
+      - run:
+          name: update-npm
+          command: "sudo npm install -g npm@5"
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package-lock.json" }}
+      - run:
+          name: install-packages
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package-lock.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: test
+          command: npm run test
+      - run:
+          name: build-project
+          command: npm run generate:gh-pages
+      - run:
+          name: Install and configure dependencies
+          command: |
+            npm install gh-pages --save-dev
+            git config user.email "fikfikky@gmail.com"
+            git config user.name "coderonfleek"
+      - add_ssh_keys:
+          fingerprints:
+            - "32:04:f0:a0:7e:7f:94:f5:72:1a:38:68:7c:f3:f9:a7"
+      - run:
+          name: Deploy docs to gh-pages branch
+          command: './node_modules/.bin/gh-pages --dotfiles --message "[skip ci] Updates" -d dist'
+      - store_artifacts:
+          path: test-results.xml
+          prefix: tests
+      - store_test_results:
+          path: test-results.xml
