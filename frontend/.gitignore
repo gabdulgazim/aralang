@@ -91,7 +91,6 @@ sw.*
 dist/
 
 .env
-cypress/{screenshots,videos}/
 
 # added by jetbrains
 /cypress/screenshots/
