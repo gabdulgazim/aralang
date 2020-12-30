@@ -38,6 +38,7 @@ export default {
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
   ],
+
   router: {
     base: '/aralang/'
   },
@@ -66,13 +67,19 @@ export default {
   publicRuntimeConfig: {
     axios: {
       browserBaseURL: process.env.BROWSER_BASE_URL
-    }
+    },
+    router: {
+      base: '/aralang/'
+    },
   },
 
   privateRuntimeConfig: {
     axios: {
       baseURL: process.env.BASE_URL
-    }
+    },
+    router: {
+      base: '/aralang/'
+    },
   },
 
   // for avoiding issues with CORS
