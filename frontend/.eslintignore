@@ -1,0 +1,5 @@
+cypress/integration/*
+cypress/*
+test/*
+nuxt.config.js
+
