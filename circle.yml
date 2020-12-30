@@ -1,12 +1,12 @@
 version: 2.1
 jobs:
   build:
-    working_directory: /home/circleci/frontend
     docker:
       - image: cypress/base:10
         environment:
           ## this enables colors in the output
           TERM: xterm
+    working_directory: /home/circleci/frontend
     steps:
       - checkout
 #          path: ./frontend
