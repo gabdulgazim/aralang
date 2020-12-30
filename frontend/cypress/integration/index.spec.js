@@ -4,31 +4,30 @@ context('Main page', () => {
     cy.visit('/') // change URL to match your dev URL
   })
 
-  // it("home  page contians meaningful text", function () {
-  //
-  //   cy.contains('Ara_lang')
-  //
-  //
-  //     // cy.getBySel("sidenav-bankaccounts").click();
-  //     //
-  //     // cy.getBySel("bankaccount-new").click();
-  //     // cy.location("pathname").should("eq", "/bankaccounts/new");
-  //     // cy.visualSnapshot("Display New Bank Account Form");
-  //     //
-  //     // cy.getBySelLike("bankName-input").type("The Best Bank");
-  //     // cy.getBySelLike("routingNumber-input").type("987654321");
-  //     // cy.getBySelLike("accountNumber-input").type("123456789");
-  //     // cy.visualSnapshot("Fill out New Bank Account Form");
-  //     // cy.getBySelLike("submit").click();
-  //     //
-  //     // cy.wait("@createBankAccount");
-  //     //
-  //     // cy.getBySelLike("bankaccount-list-item")
-  //     //   .should("have.length", 2)
-  //     //   .eq(1)
-  //     //   .should("contain", "The Best Bank");
-  //     .screenshot("Main page has some meaningfull text");
-  // });
+  it("home  page contians meaningful text", function () {
+
+    cy.contains('Ara_lang')
+
+
+      // cy.getBySel("sidenav-bankaccounts").click();
+      //
+      // cy.getBySel("bankaccount-new").click();
+      // cy.location("pathname").should("eq", "/bankaccounts/new");
+      // cy.visualSnapshot("Display New Bank Account Form");
+      //
+      // cy.getBySelLike("bankName-input").type("The Best Bank");
+      // cy.getBySelLike("routingNumber-input").type("987654321");
+      // cy.getBySelLike("accountNumber-input").type("123456789");
+      // cy.visualSnapshot("Fill out New Bank Account Form");
+      // cy.getBySelLike("submit").click();
+      //
+      // cy.wait("@createBankAccount");
+      //
+      // cy.getBySelLike("bankaccount-list-item")
+      //   .should("have.length", 2)
+      //   .eq(1)
+      //   .should("contain", "The Best Bank");
+  });
 
 
   // it('Get and set configuration options', () => {
@@ -95,6 +94,16 @@ context('Main page', () => {
           .should('have.value', 'fake@email.com')
       })
 
+    // wrong email
+    cy.get('[data-cy=fb-email]')
+      .type('notemail.com')
+
+
+    cy.get('[data-cy=fb-email]').parent()
+      .within(() => {
+        cy.contains('Мы бы')
+      })
+
       // .type() with special character sequences
       .type('{leftarrow}{rightarrow}{uparrow}{downarrow}')
       .type('{del}{selectall}{backspace}')
@@ -122,37 +131,41 @@ context('Main page', () => {
           .should('have.attr',
             'placeholder', 'subject')
       })
-      // .should('include', 'request')
-
-      // .type() with special character sequences
-      .type('{leftarrow}{rightarrow}{uparrow}{downarrow}')
-      .type('{del}{selectall}{backspace}')
-
-      // .type() with key modifiers
-      .type('{alt}{option}') //these are equivalent
-      .type('{ctrl}{control}') //these are equivalent
-      .type('{meta}{command}{cmd}') //these are equivalent
-      .type('{shift}')
-
   })
 
-  // it('.type() - type message', () => {
-  //   cy.get('.fb-message')
-  //     .type('Some message')
-  //
-  //     cy.get('.fb-message').should('have.html', 'Some message')
-  //
-  //     // .type() with special character sequences
-  //     .type('{leftarrow}{rightarrow}{uparrow}{downarrow}')
-  //     .type('{del}{selectall}{backspace}')
-  //
-  //     // .type() with key modifiers
-  //     .type('{alt}{option}') //these are equivalent
-  //     .type('{ctrl}{control}') //these are equivalent
-  //     .type('{meta}{command}{cmd}') //these are equivalent
-  //     .type('{shift}')
-  //
-  // })
+  it('.type() - type message', () => {
+    cy.get('[data-cy=fb-message]')
+      .type('Some message')
+
+      cy.get('[data-cy=fb-message]').parent()
+        .within(() => {
+          cy.get('textarea:first')
+          .should('have.value', 'Some message')
+        })
+  })
+
+  it('can send feedback', () => {
+
+    // name
+    cy.get('[data-cy=fb-name]')
+      .type('Feedbacker name')
+
+    // email
+    cy.get('[data-cy=fb-email]')
+      .type('fake@email.com')
+
+    // subject
+    cy.get('[data-cy=fb-subject]')
+      .type('request feature')
+
+    cy.get('[data-cy=fb-submit]')
+      .click()
+
+    cy.get('[data-cy=fb-all]')
+      .contains('Some message')
+
+    cy.screenshot()
+  })
 
 //   it('.focus() - focus on a DOM element', () => {
 //     // https://on.cypress.io/focus

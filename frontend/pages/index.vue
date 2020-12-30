@@ -200,7 +200,7 @@
           <h2
             class="display-2 font-weight-bold mb-3 text-uppercase text-center"
           >
-            Сообщить разработчикам
+            <strong>Сообщить</strong> разработчикам желаемое
           </h2>
 
           <v-responsive class="mx-auto mb-12" width="56">
@@ -210,7 +210,7 @@
           </v-responsive>
 
           <v-theme-provider class="feedback" light>
-            <form @submit="formSubmit">
+            <v-form v-model="valid" method="post" @submit="formSubmit">
               <v-row>
                 <v-col cols="12">
                   <v-text-field
@@ -219,6 +219,8 @@
                     flat
                     label="Имя*"
                     placeholder="name"
+                    :rules="nameRules"
+                    required
                     solo
                     type="text"
                   ></v-text-field>
@@ -231,6 +233,8 @@
                     flat
                     label="Email*"
                     placeholder="email"
+                    :rules="emailRules"
+                    required
                     solo
                     type="email"
                   ></v-text-field>
@@ -243,6 +247,7 @@
                     flat
                     label="По поводу*"
                     placeholder="subject"
+                    required
                     solo
                   ></v-text-field>
                 </v-col>
@@ -251,6 +256,8 @@
                   <v-textarea
                     v-model="message"
                     data-cy="fb-message"
+                    placeholder="message"
+                    required
                     flat
                     label="Сообщить о том, что*"
                     solo
@@ -258,12 +265,21 @@
                 </v-col>
 
                 <v-col class="mx-auto" cols="auto">
-                  <v-btn color="accent" type="submit" x-large>
+                  <v-btn
+                    color="accent"
+                    data-cy="fb-submit"
+                    type="submit"
+                    x-large
+                  >
                     Сообщить в Ara_lang
                   </v-btn>
                 </v-col>
               </v-row>
-            </form>
+            </v-form>
+            <div data-cy="fb-all">
+              <strong>Feedback</strong>
+              {{ output }}
+            </div>
           </v-theme-provider>
         </v-container>
 
@@ -284,40 +300,42 @@
 
 <script>
 export default {
-  data() {
-    return {
-      return: {
-        name: '',
-        message: '',
-        subject: '',
-        email: '',
-      },
-    }
-  },
+  data: () => ({
+    valid: false,
+    name: '',
+    message: '',
+    subject: '',
+    email: '',
+    output: '',
+    nameRules: [
+      (v) => !!v || 'Мы бы иметь представление о том, кто отправляет сообщение',
+      (v) => v.length <= 2 || 'Мы не знаем людей длиной имени менее двух букв',
+    ],
+    emailRules: [
+      (v) =>
+        !!v ||
+        'Мы бы иметь представление о том, с чьей почты отправляется сообщение',
+      (v) => /.+..+/.test(v) || 'Только настоящий email',
+    ],
+  }),
   methods: {
     formSubmit(e) {
       e.preventDefault()
+      const feedback = this
 
-      // let currentObj = this;
-
-      this.axios.post('/api/v1/feedback', {
-        name: this.name,
-        message: this.message,
-        subject: this.subject,
-        email: this.email,
-      })
-
-      // .then(function (response) {
-      //
-      //   currentObj.output = response.data;
-      //
-      // })
-      //
-      // .catch(function (error) {
-      //
-      //   currentObj.output = error;
-      //
-      // });
+      this.axios
+        .post('/api/v1/feedback', {
+          name: this.name,
+          message: this.message,
+          subject: this.subject,
+          email: this.email,
+        })
+        .then(function (response) {
+          feedback.output = response.data
+        })
+        .catch(function (error) {
+          feedback.output = error
+        })
     },
   },
 }

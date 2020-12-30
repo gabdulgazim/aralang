@@ -24,7 +24,7 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
-    'plugins/axios',
+    // 'plugins/axios',
     'plugins/vuetify',
   ],
 
@@ -39,11 +39,38 @@ export default {
     '@nuxtjs/vuetify',
   ],
 
+  routerBase:
+    process.env.DEPLOY_ENV === "GH_PAGES"
+      ? {
+        router: {
+          base: "/my-nuxt-app/"
+        }
+      }
+      : {},
+
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: ['@nuxtjs/axios',
-    '@nuxtjs/proxy'
+    '@nuxtjs/proxy',
+    ...routerBase
   ],
 
+  // to communicate with Laravel backend
+  axios: {
+    baseURL: 'http://localhost:8000',
+
+  },
+
+  publicRuntimeConfig: {
+    axios: {
+      browserBaseURL: process.env.BROWSER_BASE_URL
+    }
+  },
+
+  privateRuntimeConfig: {
+    axios: {
+      baseURL: process.env.BASE_URL
+    }
+  },
 
   // for avoiding issues with CORS
   proxy: {

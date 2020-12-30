@@ -91,3 +91,7 @@ sw.*
 dist/
 
 .env
+cypress/{screenshots,videos}
+cypress/screenshots
+/cypress/screenshots/
+/cypress/videos/
