@@ -1,34 +1,22 @@
 version: 2.1
-jobs:
+orbs:
+  cypress: cypress-io/cypress@1
+workflows:
   build:
-    docker:
-      - image: cypress/base:10
-        environment:
-          ## this enables colors in the output
-          TERM: xterm
-    working_directory: ~/frontend
-    steps:
-      - checkout
-#          path: ./frontend
-      - run:
-          name: pwd
-          command: cd && pwd
-      - restore_cache:
-          keys:
-            - v1-deps-{{ .Branch }}-{{ checksum "package.json" }}
-            - v1-deps-{{ .Branch }}
-            - v1-deps
-      - run:
-          name: Install Dependencies
-          command: yarn install --frozen-lockfile
-      - save_cache:
-          key: v1-deps-{{ .Branch }}-{{ checksum "package.json" }}
-          paths:
-            - ~/.cache  ## cache both yarn and Cypress!
-      - run: $(yarn bin)/cypress run --record --key 49100f76-2f4e-4870-a587-72411073c821
-      - add_ssh_keys:
-          fingerprints:
-            - "32:04:f0:a0:7e:7f:94:f5:72:1a:38:68:7c:f3:f9:a7"
-#      - run:
-#          name: Deploy docs to gh-pages branch
-#          command: './node_modules/.bin/gh-pages --dotfiles --message "[skip ci] Updates" -d dist'
+    jobs:
+      - cypress/install:
+          build: 'npm run build'  # run a custom app build step
+      - cypress/run:
+          requires:
+            - cypress/install
+          record: true        # record results on Cypress Dashboard
+          parallel: true      # split all specs across machines
+          parallelism: 4      # use 4 CircleCI machines to finish quickly
+          group: 'all tests'  # name this group "all tests" on the dashboard
+          start: 'npm start'  # start server before running tests
+
+#          run: $(yarn bin)/cypress run --record --key 49100f76-2f4e-4870-a587-72411073c821
+#
+#          - add_ssh_keys:
+#              fingerprints:
+#                - "32:04:f0:a0:7e:7f:94:f5:72:1a:38:68:7c:f3:f9:a7"
