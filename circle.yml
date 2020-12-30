@@ -10,6 +10,9 @@ jobs:
     steps:
       - checkout
 #          path: ./frontend
+      - run:
+          name: pwd
+          command: pwd
       - restore_cache:
           keys:
             - v1-deps-{{ .Branch }}-{{ checksum "package.json" }}
