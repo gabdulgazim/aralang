@@ -1,5 +1,5 @@
 <template>
-  <img alt="Vuetify Logo" class="VuetifyLogo" src="/vuetify-logo.svg"/>
+  <img alt="Vuetify Logo" class="VuetifyLogo" src="/vuetify-logo.svg" />
 </template>
 
 <style>

@@ -26,7 +26,7 @@
                     Учить арабский сегодня.
                   </span>
 
-                  <br/>
+                  <br />
 
                   <span
                     :class="[
@@ -112,7 +112,7 @@
                   ></v-card-title>
 
                   <v-card-text class="subtitle-1" v-text="text"
-                  >Средний уровень
+                    >Средний уровень
                   </v-card-text>
                 </v-card>
               </v-col>
@@ -260,8 +260,7 @@
                 <v-col class="mx-auto" cols="auto">
                   <v-btn color="accent" type="submit" x-large>
                     Сообщить в Ara_lang
-                  </v-btn
-                  >
+                  </v-btn>
                 </v-col>
               </v-row>
             </form>

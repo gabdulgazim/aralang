@@ -1,10 +1,11 @@
 import axios from '@nuxtjs/axios'
 
-export default function ({store}, inject) {
-// export default function ({ $axios, store }, inject) {
+export default function ({ store }, inject) {
+  // export default function ({ $axios, store }, inject) {
 
-  //use laravel port
-  axios.defaults.baseURL = window.location.protocol + "//" + window.location.hostname + ":8000";
+  // use laravel port
+  axios.defaults.baseURL =
+    window.location.protocol + '//' + window.location.hostname + ':8000'
 
   const emailApi = axios.create()
 
