@@ -6,7 +6,7 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "generate": "nuxt generate",
-    "start": "nuxt start",
+    "start": "CYPRESS_RECORD_KEY=49100f76-2f4e-4870-a587-72411073c821 nuxt start",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint": "yarn lint:js",
     "test": "jest",
