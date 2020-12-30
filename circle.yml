@@ -1,12 +1,12 @@
 version: 2.1
 jobs:
   build:
-    working_directory: ./frontend
     docker:
       - image: cypress/base:10
         environment:
           ## this enables colors in the output
           TERM: xterm
+    working_directory: ./frontend
     steps:
       - checkout
       - restore_cache:
