@@ -41,9 +41,11 @@
                 <v-btn
                   class="align-self-end"
                   fab
+                  data-cy="everyday"
                   outlined
-                  @click="$vuetify.goTo('#everyday')"
+                  @click="$vuetify.goTo('/everyday')"
                 >
+                  На каждый день
                 </v-btn>
               </v-row>
             </v-container>
@@ -157,11 +159,22 @@
           <div class="py-12"></div>
 
           <v-container>
-            <h2
-              class="display-2 font-weight-bold mb-3 text-uppercase text-center"
-            >
-              Блог
-            </h2>
+            <v-col data-cy="blog-col" @click="$vuetify.goTo('/blog')">
+              <h2
+                class="display-2 font-weight-bold mb-3 text-uppercase text-center"
+              >
+                Блог
+              </h2>
+              <v-btn
+                class="align-self-end"
+                fab
+                data-cy="blog"
+                outlined
+                @click="$router.push('/blog')"
+              >
+                изучать шаг за шагом
+              </v-btn>
+            </v-col>
 
             <v-responsive class="mx-auto mb-12" width="56">
               <v-divider class="mb-1"></v-divider>
@@ -210,7 +223,12 @@
           </v-responsive>
 
           <v-theme-provider class="feedback" light>
-            <v-form v-model="valid" method="post" @submit="formSubmit">
+            <v-form
+              v-model="valid"
+              data-cy="fb-form"
+              method="post"
+              @submit.prevent="formSubmit"
+            >
               <v-row>
                 <v-col cols="12">
                   <v-text-field
@@ -309,13 +327,13 @@ export default {
     output: '',
     nameRules: [
       (v) => !!v || 'Мы бы иметь представление о том, кто отправляет сообщение',
-      (v) => v.length <= 2 || 'Мы не знаем людей длиной имени менее двух букв',
+      (v) => v.length > 2 || 'Мы не знаем людей длиной имени менее двух букв',
     ],
     emailRules: [
       (v) =>
         !!v ||
         'Мы бы иметь представление о том, с чьей почты отправляется сообщение',
-      (v) => /.+..+/.test(v) || 'Только настоящий email',
+      (v) => /.+@.+\..+/.test(v) || 'Только настоящий email',
     ],
   }),
   methods: {
@@ -331,11 +349,21 @@ export default {
           email: this.email,
         })
         .then(function (response) {
+          this.router.push({ path: '/' })
           feedback.output = response.data
         })
         .catch(function (error) {
           feedback.output = error
         })
+    },
+    validate() {
+      this.$refs.form.validate()
+    },
+    reset() {
+      this.$refs.form.reset()
+    },
+    resetValidation() {
+      this.$refs.form.resetValidation()
     },
   },
 }

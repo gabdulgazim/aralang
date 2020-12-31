@@ -1,23 +1,14 @@
 context('Main page', () => {
 
   it('successfully loads', () => {
-    cy.visit('/')
-    // cy.location().should((location) => {
-    //   expect(location.href).to.eq('http://localhost:3000/aralang/')
-    //   expect(location.host).to.eq('localhost:3000')
-    //   // expect(location.hostname).to.eq('example.cypress.io')
-    //   expect(location.pathname).to.eq('/aralang/')
-    // })
+    cy.visit('/blog')
   })
 
-  // it("home  page contians meaningful text", function () {
-  //   cy.contains('Ara_lang')
-  //   cy.contains('Учить арабский сегодня.')
-  //   cy.contains('Знакомство')
-  //   cy.contains('Набор оригинальных и переведённых с английского языка постов')
-  //   cy.contains('На каждый день')
-  // });
-  //
+  it("home  page contians meaningful text", function () {
+    cy.contains('Блог')
+    cy.contains('Рады вас видеть в блоге')
+  });
+
   // it('Get and set configuration options', () => {
   //   // https://on.cypress.io/config
   //   const myConfig = Cypress.config()
@@ -41,7 +32,7 @@ context('Main page', () => {
   //
   //   Cypress.config('pageLoadTimeout', 60000)
   // })
-  //
+
   // it('.type() - type name', () => {
   //   cy.get('[data-cy=fb-name]')
   //     .type('Feedbacker name')
@@ -62,7 +53,7 @@ context('Main page', () => {
   //
   //
   // })
-  //
+
   // it('.type() - type correct email', () => {
   //   // https://on.cypress.io/type
   //   cy.get('[data-cy=fb-email]')
@@ -81,13 +72,13 @@ context('Main page', () => {
   //         .should('have.value', 'fake@email.com')
   //     })
   // })
-  //
+
   // it('.type() - type subject', () => {
   //   cy.get('[data-cy=fb-subject]')
   //     .type('request feature')
   //
   // })
-  //
+
   // it('.type() - type message', () => {
   //   cy.get('[data-cy=fb-message]')
   //     .type('Some message')
@@ -98,7 +89,7 @@ context('Main page', () => {
   //         .should('have.value', 'Some message')
   //       })
   // })
-  //
+
   // it('.type()- type wrong email', () => {
   //
   //   cy.get('[data-cy=fb-email]').clear()
@@ -110,7 +101,7 @@ context('Main page', () => {
   //   cy.contains('Только настоящий email')
   //     // .should('be.visible')
   // })
-  //
+
   // it('.type()- type wrong name', () => {
   //
   //   cy.get('[data-cy=fb-name]')
@@ -120,7 +111,7 @@ context('Main page', () => {
   //
   //   cy.contains('Мы не знаем людей длиной имени менее двух букв')
   // })
-  //
+
   // it('.type()- type no name', () => {
   //
   //   cy.get('[data-cy=fb-name]')
@@ -130,7 +121,7 @@ context('Main page', () => {
   //
   //   cy.contains('Мы бы иметь представление о том, кто отправляет сообщение')
   // })
-  //
+
   // it('.type()- type no email', () => {
   //
   //   cy.get('[data-cy=fb-email]')
@@ -142,95 +133,11 @@ context('Main page', () => {
   //   cy.contains('Мы бы иметь представление о том, с чьей почты отправляется сообщение')
   // })
 
-  it('can follow blog', () => {
-
-    cy.get('[data-cy=blog]')
-      .click()
-
-    // cy.get('[data-cy=blog-col]')
-    //   .click()
-
-    cy.location().should((location) => {
-          expect(location.pathname).to.eq('/aralang/blog')
-    })
-
-    cy.contains('Блог')
-    cy.contains('Рады вас видеть в блоге')
-  })
-
-  // TODO: test vue method
-  // it('can reset form', () => {
-  //
-  //   // name
-  //   cy.get('[data-cy=fb-name]')
-  //     .type('Feedbacker name')
-  //
-  //   // email
-  //   cy.get('[data-cy=fb-email]')
-  //     .type('fake@email.com')
-  //
-  //   // subject
-  //   cy.get('[data-cy=fb-subject]')
-  //     .type('request feature')
-  //
-  //   // message
-  //   cy.get('[data-cy=fb-message]')
-  //     .type('Message from feedbacker')
-  //
+  // it('can follow everyday', () => {
+  //   cy.get('[data-cy=everyday]')
+  //     .click()
   // })
 
-  // it('can submit a feedback form', () => {
-  //   // name
-  //   cy.get('[data-cy=fb-name]')
-  //     .type('Feedbacker name')
-  //
-  //   // email
-  //   cy.get('[data-cy=fb-email]')
-  //     .type('fake@email.com')
-  //
-  //   // subject
-  //   cy.get('[data-cy=fb-subject]')
-  //     .type('request feature')
-  //
-  //   // message
-  //   cy.get('[data-cy=fb-message]')
-  //     .type('Message from feedbacker')
-  //
-  //   cy.get('[data-cy=fb-form]')
-  //     .submit()
-  // })
-
-  //   it('.focus() - focus on a DOM element', () => {
-//     // https://on.cypress.io/focus
-//     cy.get('.action-focus').focus()
-//       .should('have.class', 'focus')
-//       .prev().should('have.attr', 'style', 'color: orange;')
-//   })
-//
-//   it('.blur() - blur off a DOM element', () => {
-//     // https://on.cypress.io/blur
-//     cy.get('.action-blur').type('About to blur').blur()
-//       .should('have.class', 'error')
-//       .prev().should('have.attr', 'style', 'color: red;')
-//   })
-//
-//   it('.clear() - clears an input or textarea element', () => {
-//     // https://on.cypress.io/clear
-//     cy.get('.action-clear').type('Clear this text')
-//       .should('have.value', 'Clear this text')
-//       .clear()
-//       .should('have.value', '')
-//   })
-//
-//   it('.submit() - submit a form', () => {
-//     // https://on.cypress.io/submit
-//     cy.get('.action-form')
-//       .find('[type="text"]').type('HALFOFF')
-//
-//     cy.get('.action-form').submit()
-//       .next().should('contain', 'Your form has been submitted!')
-//   })
-//
 //   it('.click() - click on a DOM element', () => {
 //     // https://on.cypress.io/click
 //     cy.get('.action-btn').click()
@@ -462,5 +369,4 @@ context('Main page', () => {
 //
 //     // control the duration of the scroll (in ms)
 //     cy.get('#scrollable-both').scrollTo('center', {duration: 2000})
-//   })
 })

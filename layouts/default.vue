@@ -57,7 +57,14 @@
       </v-list>
     </v-navigation-drawer>
     <v-footer :absolute="!fixed" app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+      <span>
+        На основе шаблона Copyright {{ new Date().getFullYear() }} — Vuetify,
+        Made with Love by John Leider
+      </span>
+      <span
+        >Непосредственно данный шаблон MIT, использование в любых, в том числе
+        коммерческих целях</span
+      >
     </v-footer>
   </v-app>
 </template>
