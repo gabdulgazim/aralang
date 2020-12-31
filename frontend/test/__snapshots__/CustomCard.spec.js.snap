@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`CustomCard.vue should have a custom title and match snapshot 1`] = `
-"<div>
-  <div class=\\"card\\"><span class=\\"span\\">Card title</span> <button>Action</button></div>
-  <div></div>
-</div>"
-`;
