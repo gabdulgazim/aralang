@@ -47,6 +47,7 @@
                 class="flex"
                 md="4"
               ><h3>Урок</h3>
+                &nbsp;&nbsp;
                 <h3
                   class="font-weight-black mb-4 text-uppercase"
                   v-text="title"
