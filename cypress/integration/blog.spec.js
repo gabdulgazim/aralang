@@ -4,10 +4,14 @@ context('Main page', () => {
     cy.visit('/blog')
   })
 
-  it("home  page contians meaningful text", function () {
-    cy.contains('Блог')
-    cy.contains('Рады вас видеть в блоге')
-  });
+  // it("home  page contians meaningful text", function () {
+  //   cy.contains('Блог')
+  //   cy.contains('Рады вас видеть в блоге')
+  // });
+
+  it('contains a post', function () {
+    cy.contains('Урок')
+  })
 
   // it('Get and set configuration options', () => {
   //   // https://on.cypress.io/config

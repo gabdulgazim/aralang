@@ -18,15 +18,15 @@
           </v-theme-provider>
         </v-row>
       </section>
-      <section id="blog">
+      <section id="blog" class="flex">
         <v-parallax
           :height="$vuetify.breakpoint.smAndDown ? 700 : 500"
           :src="require('~/assets/images/unslash-purple.jpg')"
-          class="rounded"
+          class="rounded flex"
         >
           <div class="py-12"></div>
 
-          <v-container>
+          <v-container class="flex">
             <h2
               class="display-2 font-weight-bold mb-3 text-uppercase text-center"
             >
@@ -39,22 +39,26 @@
               <v-divider></v-divider>
             </v-responsive>
 
-            <v-row>
+            <v-row class="flex">
               <v-col
-                v-for="({ text, title }, i) in articles"
+                v-for="({ body, title }, i) in posts"
                 :key="i"
                 cols="12"
+                class="flex"
                 md="4"
-              >
+              ><h3>Урок</h3>
                 <h3
                   class="font-weight-black mb-4 text-uppercase"
                   v-text="title"
                 ></h3>
 
-                <div class="title font-weight-light mb-5" v-text="text"></div>
+                <div
+                  class="title flex font-weight-light mb-5"
+                  v-text="body"
+                ></div>
 
                 <v-btn class="ml-n4 font-weight-black" text>
-                  Возможно, вы найдёте полезным
+                  Погрузиться
                 </v-btn>
               </v-col>
             </v-row>
@@ -75,53 +79,9 @@
 
 <script>
 export default {
-  data: () => ({
-    valid: false,
-    name: '',
-    message: '',
-    subject: '',
-    email: '',
-    output: '',
-    nameRules: [
-      (v) => !!v || 'Мы бы иметь представление о том, кто отправляет сообщение',
-      (v) => v.length > 2 || 'Мы не знаем людей длиной имени менее двух букв',
-    ],
-    emailRules: [
-      (v) =>
-        !!v ||
-        'Мы бы иметь представление о том, с чьей почты отправляется сообщение',
-      (v) => /.+@.+\..+/.test(v) || 'Только настоящий email',
-    ],
-  }),
-  methods: {
-    formSubmit(e) {
-      e.preventDefault()
-      const feedback = this
-
-      this.axios
-        .post('/api/v1/feedback', {
-          name: this.name,
-          message: this.message,
-          subject: this.subject,
-          email: this.email,
-        })
-        .then(function (response) {
-          this.router.push({ path: '/' })
-          feedback.output = response.data
-        })
-        .catch(function (error) {
-          feedback.output = error
-        })
-    },
-    validate() {
-      this.$refs.form.validate()
-    },
-    reset() {
-      this.$refs.form.reset()
-    },
-    resetValidation() {
-      this.$refs.form.resetValidation()
-    },
+  async asyncData({params, $http}) {
+    const posts = await $http.$get(`http://127.0.0.1:8000/api/v1/posts`)
+    return {...posts}
   },
 }
 </script>

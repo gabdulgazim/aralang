@@ -43,24 +43,25 @@ export default {
     base: '/aralang/'
   },
 
-    // routerBase:
-    // process.env.DEPLOY_ENV === "GH_PAGES"
-    //   ? {
-    //     router: {
-    //       base: "/my-nuxt-app/"
-    //     }
-    //   }
-    //   : {},
+  // routerBase:
+  // process.env.DEPLOY_ENV === "GH_PAGES"
+  //   ? {
+  //     router: {
+  //       base: "/my-nuxt-app/"
+  //     }
+  //   }
+  //   : {},
 
   // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: ['@nuxtjs/axios',
+  modules: [
+    '@nuxtjs/axios',
     '@nuxtjs/proxy',
+    '@nuxt/http'
   ],
 
   // to communicate with Laravel backend
   axios: {
-    baseURL: 'http://localhost:8000',
-
+    // baseURL: 'http://localhost:8000',
   },
 
   publicRuntimeConfig: {
