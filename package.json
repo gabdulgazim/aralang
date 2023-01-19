@@ -18,7 +18,7 @@
     "@nuxt/content": "^1.11.1",
     "@nuxt/http": "^0.6.2",
     "@nuxtjs/axios": "^5.12.4",
-    "core-js": "^3.6.5",
+    "core-js": "^3.27.2",
     "nuxt": "^2.14.6"
   },
   "devDependencies": {
